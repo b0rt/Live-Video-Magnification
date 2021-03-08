@@ -13,39 +13,37 @@ linux {
 win32 {
     ##########################################################################
     # !! Change this to match your OpenCV (>= v4) installation on Windows !! #
-    INCLUDEPATH += D:/Programme/OpenCV/source/opencv/install/include
+
+# this should resolve in a resolvable filepath G:\opencv\build\include\opencv2\core.hpp
+    INCLUDEPATH += G:\opencv\build\x64\mingw81\install\include
+
     CONFIG(release, debug|release) {
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_core412.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_highgui412.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_imgproc412.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_imgcodecs412.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_videoio412.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_video412.lib
-        LIBS += D:\Programme\OpenCV\source\tbb2019_20190605oss\lib\intel64\vc14\tbb.lib
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_core451.dll
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_highgui451.dll
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_imgproc451.dll
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_imgcodecs451.dll
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_videoio451.dll
     }
     CONFIG(debug, debug|release) {
         DEFINES += DEBUG_MODE
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_core412d.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_highgui412d.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_imgproc412d.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_imgcodecs412d.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_videoio412d.lib
-        LIBS += D:\Programme\OpenCV\source\opencv\install\x64\vc15\lib\opencv_video412d.lib
-        LIBS += D:\Programme\OpenCV\source\tbb2019_20190605oss\lib\intel64\vc14\tbb_debug.lib
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_core451d.dll
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_highgui451d.dll
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_imgproc451d.dll
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_imgcodecs451d.dll
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_videoio451d.dll
+        LIBS += G:\opencv\build\x64\mingw81\bin\libopencv_video451d.dll
+        #LIBS += D:\Programme\OpenCV\source\tbb2019_20190605oss\lib\intel64\vc14\tbb_debug.lib
     }
-    LIBS += -L"D:/Programme/OpenCV/source/opencv/install/x64/vc15/bin"
+    #LIBS += -L"D:/Programme/OpenCV/source/opencv/install/x64/vc15/bin"
     # !! Change this to match your OpenCV (>= v4) installation on Windows !! #
     ##########################################################################
 
     # Comment out if OpenCV was compiled without TBB
-    LIBS += -L"D:/Programme/OpenCV/source/tbb2019_20190605oss/bin/intel64/vc14"
+    #LIBS += -L"D:/Programme/OpenCV/source/tbb2019_20190605oss/bin/intel64/vc14"
 
     # Place compiled filed inside distinct release and debug folder
     # without another release and debug folder within each release and debug folder
     CONFIG -= debug_and_release debug_and_release_target
-
-    CV22_INCLUDE =
-    CV22_LIB =
 }
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -117,5 +115,3 @@ FORMS += \
     main/ui/MagnifyOptions.ui \
     main/ui/VideoView.ui
 
-# Spare me those nasty C++ compiler warnings and pray instead
-QMAKE_CXXFLAGS += -W2
